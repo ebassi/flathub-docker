@@ -45,7 +45,7 @@ git clone --recursive https://github.com/flatpak/flatpak /root/flatpak && \
         cd /root && \
         rm -rf /root/flatpak
 
-apt-get remove -y \
+apt-get remove -y --purge \
         adwaita-icon-theme \
         autotools-dev \
         bison \
@@ -80,5 +80,7 @@ apt-get remove -y \
         xmlto \
         xorg-sgml-doctools \
         xsltproc
+
+apt autoremove -y
 
 rm -rf /usr/share/doc/* /usr/share/man/*

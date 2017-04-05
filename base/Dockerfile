@@ -3,11 +3,13 @@ MAINTAINER Emmanuele Bassi <ebassi@gmail.com>
 
 RUN echo "deb-src http://httpredir.debian.org/debian stretch main" >> /etc/apt/sources.list
 
-RUN apt-get update -qq && apt-get install -qq -y --no-install-recommends \
+RUN apt-get update -qq && \
+    apt-get install -qq -y --no-install-recommends \
+        flatpak \
         git-core \
-        locales
-
-RUN rm -rf /usr/share/doc/* /usr/share/man/*
+        locales \
+        make && \
+    rm -rf /usr/share/doc/* /usr/share/man/*
 
 RUN locale-gen C.UTF-8 && /usr/sbin/update-locale LANG=C.UTF-8
 
